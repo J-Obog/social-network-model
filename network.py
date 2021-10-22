@@ -78,7 +78,10 @@ class Network:
 
     """ get list of user1 and user2's mutual friends """
     def mutual_friends(self, user1, user2):
-        pass
+        if self.__map.get(user1) == None or self.__map.get(user2) == None:
+            raise Exception("Both users must exist in network")
+
+        return list(set(self.friend_list(user1)) & set(self.friend_list(user2)))
 
 
     """ check if user1 and user 2 are friends """
