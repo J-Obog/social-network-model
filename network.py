@@ -1,8 +1,9 @@
-
+ 
 class Network:
     def __init__(self, capacity = -1):
         self.__capacity = capacity
         self.__size = 0
+        self.__map = {}
         self.__graph = []
         self.__sparse_queue = []  
 
