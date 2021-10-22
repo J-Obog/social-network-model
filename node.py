@@ -1,5 +1,5 @@
 
 class Node:
-    def __init__(self, id, username):
+    def __init__(self, id, user):
         self.id = id
-        self.username = username
+        self.user = user
