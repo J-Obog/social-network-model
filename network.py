@@ -1,9 +1,10 @@
 
 class Network:
     def __init__(self, capacity = -1):
-        self.capacity = capacity
-        self.graph = []
-        self.sparse_queue = []  
+        self.__capacity = capacity
+        self.__size = 0
+        self.__graph = []
+        self.__sparse_queue = []  
 
     """ add new user to the network """
     def add(self, user): 
