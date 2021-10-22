@@ -34,7 +34,7 @@ class Network:
 
         for i in range(self.__size):
             self.__graph[i][self.__map[user]] = 0
-            
+
         self.__sparse_queue.append(self.__map[user])
         self.__map.pop(user)
         
@@ -61,8 +61,16 @@ class Network:
 
     """ get list of user's friends """
     def friend_list(self, user):
-        pass
+        lst = []
+        for i in range(self.__size):
+            if self.__graph[self.__map[user]][i] == 1:
+                for pair in self.__map.items():
+                    k, v = pair
+                    if v == i:
+                        lst.append(k)
 
+        return lst  
+        
 
     """ get list of user1 and user2's mutual friends """
     def mutual_friends(self, user1, user2):
