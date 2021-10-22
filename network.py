@@ -7,6 +7,7 @@ class Network:
         self.__graph = []
         self.__sparse_queue = []  
 
+
     """ add new user to the network """
     def add(self, user):
         if self.__map.get(user) != None:
@@ -25,14 +26,19 @@ class Network:
         
         self.__size += 1
 
+
     """ remove user from the network """
     def remove(self, user): 
         if self.__map.get(user) == None:
             raise Exception("User doesn't exist in network")
 
+        for i in range(self.__size):
+            self.__graph[i][self.__map[user]] = 0
+            
         self.__sparse_queue.append(self.__map[user])
         self.__map.pop(user)
         
+
     """ change user's name """
     def update(self, user, new_user):
         if self.__map.get(user) == None:
@@ -44,17 +50,29 @@ class Network:
         self.__map[new_user] = self.__map[user]
         self.__map.pop(user)
 
+    """ make user1 and user2 friends """
+    def link(self, user1, user2):
+        if self.__map.get(user1) == None or self.__map.get(user2) == None:
+            raise Exception("Both users must exist in network")
+
+        self.__graph[self.__map[user1]][self.__map[user2]] = 1
+        self.__graph[self.__map[user2]][self.__map[user1]] = 1
+
+
     """ get list of user's friends """
-    def friends(self, user):
+    def friend_list(self, user):
         pass
+
 
     """ get list of user1 and user2's mutual friends """
     def mutual_friends(self, user1, user2):
         pass
-    
+
+
     """ check if user1 and user 2 are friends """
     def are_friends(self, user1, user2):
         pass
+
 
     """ check if user1 and user2 are mutual friends """
     def are_mutual_friends(self, user1, user2):
