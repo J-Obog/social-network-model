@@ -86,7 +86,10 @@ class Network:
 
     """ check if user1 and user 2 are friends """
     def are_friends(self, user1, user2):
-        pass
+        if self.__map.get(user1) == None or self.__map.get(user2) == None:
+            raise Exception("Both users must exist in network")
+
+        return (self.__graph[self.__map[user1]][self.__map[user2]] == 1)
 
 
     """ check if user1 and user2 are mutual friends """
