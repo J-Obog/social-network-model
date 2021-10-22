@@ -8,13 +8,31 @@ class Network:
         self.__sparse_queue = []  
 
     """ add new user to the network """
-    def add(self, user): 
-        pass
+    def add(self, user):
+        if self.__map.get(user) != None:
+            raise Exception('Username already exists')
+
+        if len(self.__sparse_queue) == 0:
+            self.__map[user] = self.__size
+            
+            for i in range(self.__size):
+                self.__graph[i].append(0)
+            
+            self.__graph.append([0] * (self.__size + 1))
+        else:
+            self.__map[user] = self.__sparse_queue[0]
+            self.__sparse_queue.pop(0)
+        
+        self.__size += 1
 
     """ remove user from the network """
-    def remove(self, remove): 
-        pass
+    def remove(self, user): 
+        if self.__map.get(user) == None:
+            raise Exception("User doesn't exist in network")
 
+        self.__sparse_queue.append(self.__map[user])
+        self.__map.pop(user)
+        
     """ change user's name """
     def update(self, user, new_user):
         pass
