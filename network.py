@@ -10,7 +10,7 @@ class Network:
     """ add new user to the network """
     def add(self, user):
         if self.__map.get(user) != None:
-            raise Exception('Username already exists')
+            raise Exception('Username already exists in network')
 
         if len(self.__sparse_queue) == 0:
             self.__map[user] = self.__size
@@ -35,7 +35,14 @@ class Network:
         
     """ change user's name """
     def update(self, user, new_user):
-        pass
+        if self.__map.get(user) == None:
+            raise Exception("User doesn't exist in network")
+
+        if self.__map.get(new_user) != None:
+            raise Exception('Username already exists in network')
+
+        self.__map[new_user] = self.__map[user]
+        self.__map.pop(user)
 
     """ get list of user's friends """
     def friends(self, user):
