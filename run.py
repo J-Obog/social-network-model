@@ -6,8 +6,12 @@ def main():
     net.add('SJohnson78')
     net.add('DFord99')
     net.link('JDoe63', 'SJohnson78')
-    net.link('JDoe63', 'DFord99')
-    print(net.friend_list('JDoe63'))
+    net.link('DFord99', 'SJohnson78') 
+
+    print(net.are_mutual_friends('DFord99', 'JDoe63'))
+
+    #print(net.friend_list('JDoe63'))
+
 
 if __name__ == '__main__': 
     main()
