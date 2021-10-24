@@ -1,4 +1,4 @@
-# social-network-model
+# Social Network Model
 
 Modeling real world social network interactivity using unweighted undirected graphs
 
