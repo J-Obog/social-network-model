@@ -2,7 +2,6 @@
 
 Modeling real world social network interactivity using unweighted undirected graphs
 
-
 ## Usage
 
 In order to run the project locally, make sure that you have the latest version of [Python](https://www.python.org/downloads/) installed. 
