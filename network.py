@@ -10,6 +10,9 @@ class Network:
 
     """ add new user to the network """
     def add(self, user):
+        if (len(self.__sparse_queue) == 0) and (self.__size == self.__capacity):
+            raise Exception('Network has reached capacity')
+            
         if self.__map.get(user) != None:
             raise Exception('Username already exists in network')
 
