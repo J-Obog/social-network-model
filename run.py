@@ -15,7 +15,6 @@ def main():
     # testing out Network API
     print(f"\nDFord99 and JDoe63 are mutual friends: {net.are_mutual_friends('DFord99', 'JDoe63')}")
     print(f"\nJDoe63's friend list: {net.friend_list('JDoe63')}")
-    net.update("JDoe63", "JDoeSixThree")
     print(f"\nSJohnson78's friend list: {net.friend_list('SJohnson78')}")
 
 if __name__ == '__main__': 
